@@ -1,5 +1,5 @@
 <?php
-include('EnumDBContent.php');
+include_once 'EnumDBContent.php';
 
 class aoe2DB extends SQLite3 {
 
