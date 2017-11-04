@@ -12,7 +12,7 @@ class EnumDBContent extends Enum {
     const CONTENT = 3;
     const TYPE = 4;
     const POSITION = 5;
-    const CHILDS = 6:
+    const CHILDS = 6;
 }
 
 ?>

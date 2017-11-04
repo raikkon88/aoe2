@@ -4,7 +4,7 @@
   $professor = "Anton Bardera";
   $practica = "Gestor de continguts";
 ?>
-
+  </div> <!-- Tenquem el div class row que hi ha al header -->
     <footer>
         <ul class="footer_data">
             <li><?php echo $assignatura; ?></li>

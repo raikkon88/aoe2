@@ -1,4 +1,5 @@
 <?php
+
 include_once "content_types/BaseContent.php";
 include_once "content_types/ImageContent.php";
 include_once "content_types/ListContent.php";
@@ -11,7 +12,6 @@ include_once "db/EnumDBContent.php";
 
 class TemplateManager {
 
-    private $contentType;
     private $content;
 
     function __construct($array){
@@ -19,12 +19,10 @@ class TemplateManager {
     }
 
     function getContentObject(){
-        echo "get content object";
 
         switch ($this->content[EnumDBContent::TYPE]) {
             case EnumContentType::BASE_CONTENT:
-
-
+                return new BaseContent($this->content);
                 break;
             case EnumContentType::IMAGE_CONTENT:
 
@@ -52,7 +50,6 @@ class TemplateManager {
                 break;
         }
     }
-
 }
 
 

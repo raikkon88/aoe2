@@ -1,5 +1,6 @@
 <?php
-include_once 'EnumDBContent.php';
+
+include_once "EnumDBContent.php";
 
 class aoe2DB extends SQLite3 {
 
@@ -16,22 +17,23 @@ class aoe2DB extends SQLite3 {
     }
 
     function getContentById($id){
+
         $select="SELECT ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION from CONTENT where ID=".$id;
         $query=$this->query($select);
-
         $result = $this->resultSetToArray($query);
+
         $arrayResult=null;
         foreach ($result as $entry) {
+
             $arrayResult[EnumDBContent::ID]=$entry['ID'];
             $arrayResult[EnumDBContent::TITLE]=$entry['TITLE'];
             $arrayResult[EnumDBContent::PARENT_ID]=$entry['PARENT_ID'];
-            $arrayResult[EnumDBContent::CONTENT_TYPE]=$entry['CONTENT_TYPE'];
+            $arrayResult[EnumDBContent::TYPE]=$entry['CONTENT_TYPE'];
             $arrayResult[EnumDBContent::CONTENT]=$entry['CONTENT'];
             $arrayResult[EnumDBContent::POSITION]=$entry['POSITION'];
 
             $arrayResult[EnumDBContent::CHILDS]=$this->getContentChildsIDS($id);
         }
-
         return $arrayResult;
     }
 
