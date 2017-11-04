@@ -6,8 +6,8 @@ class aoe2DB extends SQLite3 {
 
     const PATH = "db/aoe2DB.db";
 
-    function __construct(){
-        $this->open($this::PATH);
+    function __construct($path){
+        $this->open($path);
     }
 
     function insertContent($id,$parentID,$title,$contentType,$content,$position){
