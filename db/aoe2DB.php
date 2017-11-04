@@ -6,8 +6,8 @@ class aoe2DB extends SQLite3 {
 
     const PATH = "db/aoe2DB.db";
 
-    function __construct(){
-        $this->open($this::PATH);
+    function __construct($path){
+        $this->open($path);
     }
 
     function insertContent($id,$parentID,$title,$contentType,$content,$position){
@@ -50,6 +50,21 @@ class aoe2DB extends SQLite3 {
         return $arrayResult;
     }
 
+    function getIDSTitles(){
+        $select="SELECT ID,TITLE from CONTENT";
+        $query=$this->query($select);
+        $result = $this->resultSetToArray($query);
+
+        $arrayResult=null;
+        $array=array();
+        foreach ($result as $entry) {
+
+            $arrayResult[EnumDBContent::ID]=$entry['ID'];
+            $arrayResult[EnumDBContent::TITLE]=$entry['TITLE'];
+            array_push($array,$arrayResult);
+        }
+        return $array;
+    }
 
 
     private function resultSetToArray($queryResultSet){
