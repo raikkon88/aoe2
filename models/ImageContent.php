@@ -2,7 +2,7 @@
 
 include_once "BaseContent.php";
 
-class ImageContent extends BaseContent{
+class ImageContent extends BaseContent {
 
 }
 
