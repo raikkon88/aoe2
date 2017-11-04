@@ -1,17 +1,18 @@
 <?php
+include('EnumDBContent.php');
 
 class aoe2DB extends SQLite3 {
 
+    const PATH = "db/aoe2DB.db";
 
-
-    function __construct($path){
-        $this->open($path);
+    function __construct(){
+        $this->open($this::PATH);
     }
 
     function insertContent($id,$parentID,$title,$contentType,$content,$position){
 
         $insert="INSERT INTO CONTENT(ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION) Values(".$id.",".$parentID.",'".$title."','".$contentType."','".$content."',".$position.")";
-        echo($insert);
+        //echo($insert);
         $this->exec($insert);
         //$insert='INSERT INTO CONTENT(ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION) Values(:id,:parent,:title,:type,:content,:position)';
         /*$statement=$this->prepare($insert);
@@ -30,7 +31,7 @@ class aoe2DB extends SQLite3 {
 
     function getContent(){
         $select="SELECT CONTENT from CONTENT";
-        echo($select);
+        //echo($select);
         $result=$this->query($select);
 
         var_dump($result->fetchArray());
@@ -46,13 +47,13 @@ class aoe2DB extends SQLite3 {
         $result = $this->resultSetToArray($query);
         $arrayResult=null;
         foreach ($result as $entry) {
-            $arrayResult['ID']=$entry['ID'];
+            $arrayResult[EnumDBContent::ID]=$entry['ID'];
             $arrayResult['TITLE']=$entry['TITLE'];
             $arrayResult['PARENT_ID']=$entry['PARENT_ID'];
             $arrayResult['CONTENT_TYPE']=$entry['CONTENT_TYPE'];
             $arrayResult['CONTENT']=$entry['CONTENT'];
             $arrayResult['POSITION']=$entry['POSITION'];
-            echo "ID: ". $entry['ID']. " Title: ".$entry['TITLE']." content: ".$entry['CONTENT']."\n";
+            //echo "ID: ". $entry['ID']. " Title: ".$entry['TITLE']." content: ".$entry['CONTENT']."\n";
         }
 
         return $arrayResult;

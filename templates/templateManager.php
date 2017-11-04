@@ -6,7 +6,6 @@ include('content_types/VideoContent.php');
 include('content_types/ImageListContent.php');
 include('content_types/ImageAudioContent.php');
 
-include('db/EnumDBContent.php');
 
 class TemplateManager {
 
@@ -17,8 +16,11 @@ class TemplateManager {
     const LIST_CONTENT = "CL";
     const VIDEO_CONTENT = "CV";
 
+    private $contentType;
+
     function __construct($array){
-        echo $this::BASE_CONTENT;
+        
+        //echo $array[EnumDBContent::ID];
     }
 }
 
