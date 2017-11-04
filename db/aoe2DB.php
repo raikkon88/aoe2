@@ -2,6 +2,8 @@
 
 class aoe2DB extends SQLite3 {
 
+
+
     function __construct($path){
         $this->open($path);
     }
@@ -34,13 +36,43 @@ class aoe2DB extends SQLite3 {
         var_dump($result->fetchArray());
     }
 
-    function getContentById($id){
-        $select="SELECT CONTENT from CONTENT";
-        echo($select);
-        $result=$this->query($select);
 
-        var_dump($result->fetchArray());
+
+
+    function getContentById($id){
+        $select="SELECT ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION from CONTENT where ID=".$id."";
+        $query=$this->query($select);
+
+        $result = $this->resultSetToArray($query);
+        $arrayResult=null;
+        foreach ($result as $entry) {
+            $arrayResult['ID']=$entry['ID'];
+            $arrayResult['TITLE']=$entry['TITLE'];
+            $arrayResult['PARENT_ID']=$entry['PARENT_ID'];
+            $arrayResult['CONTENT_TYPE']=$entry['CONTENT_TYPE'];
+            $arrayResult['CONTENT']=$entry['CONTENT'];
+            $arrayResult['POSITION']=$entry['POSITION'];
+            echo "ID: ". $entry['ID']. " Title: ".$entry['TITLE']." content: ".$entry['CONTENT']."\n";
+        }
+
+        return $arrayResult;
     }
+
+
+    private function resultSetToArray($queryResultSet){
+       $multiArray = array();
+       $count = 0;
+       while($row = $queryResultSet->fetchArray(SQLITE3_ASSOC)){
+           foreach($row as $i=>$value) {
+               $multiArray[$count][$i] = $value;
+           }
+           $count++;
+       }
+       return $multiArray;
+    }
+
+
+
 }
 
 
