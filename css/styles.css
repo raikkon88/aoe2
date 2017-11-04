@@ -1,3 +1,47 @@
+/** STYLES FOR AOE WEB PAGE */
+
+/************************************************************************/
+/*                             VARIABLES                                */
+/************************************************************************/
+:root{
+    --margin-default:30px;
+}
+
+/************************************************************************/
+/*                               HEADER                                 */
+/************************************************************************/
+
 header {
-  
+    background-image: url('../images/banner.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+header img {
+    /* width: 100%; */
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    float: left;
+    margin-right: var(--margin-default);
+}
+
+.logo {
+    width: 300px;
+}
+
+.footer_data {
+    list-style-type: none;
+    float: right;
+}
+
+.footer_data li {
+    float: left;
+    font-style: none;
+    text-decoration: none;
+    margin-right: var(--margin-default);
 }
