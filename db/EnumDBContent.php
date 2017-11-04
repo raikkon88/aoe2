@@ -1,6 +1,6 @@
 <?php
 
-include("Enum.php");
+include_once "Enum.php";
 
 class EnumDBContent extends Enum {
 
