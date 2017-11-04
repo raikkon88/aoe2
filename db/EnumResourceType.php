@@ -2,13 +2,13 @@
 
 include_once "Enum.php";
 
-class EnumDBContent extends Enum {
+class EnumResourceType extends Enum {
 
-    const __default = self::AUDIO;
+        const __default = self::AUDIO;
 
-    const AUDIO = "Audio";
-    const IMAGE = "Image";
-    const VIDEO = "Video";
+        const AUDIO = "Audio";
+        const IMAGE = "Image";
+        const VIDEO = "Video";
 }
 
 ?>
