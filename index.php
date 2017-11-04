@@ -8,14 +8,21 @@
     /* Carreguem el banner amb el menú */
     include_once "templates/header.php";
     /* Carregar la plantilla del contingut */
-    include_once "templates/page_content.php";
+    //include_once "templates/page_content.php";
+    $db = new aoe2DB();
+    //$result = $db->getContentById(1);
+    $array = array();
+    $array[EnumDBContent::TYPE] = "B";
+
+    //var_dump($array);
+
+    $tm = new TemplateManager($array);
+    echo $tm->getContentObject();
+
     /* Carregar la plantilla del footer */
     include_once "templates/footer.php";
 
-    $db = new aoe2DB();
-    $result = $db->getContentById(1);
 
-    $tm = new TemplateManager($result);
 
 
 
