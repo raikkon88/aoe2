@@ -1,15 +1,16 @@
 <?php
-    include('db/aoe2DB.php');
+
+    include_once "db/aoe2DB.php";
     /* Will manage which template must load */
-    include('templates/TemplateManager.php');
+    include_once "templates/TemplateManager.php";
     /* Carregar la plantilla del header */
-    include('templates/head.php');
+    include_once "templates/head.php";
     /* Carreguem el banner amb el menú */
-    include('templates/header.php');
+    include_once "templates/header.php";
     /* Carregar la plantilla del contingut */
-    include('templates/page_content.php');
+    include_once "templates/page_content.php";
     /* Carregar la plantilla del footer */
-    include('templates/footer.php');
+    include_once "templates/footer.php";
 
     $db = new aoe2DB();
     $result = $db->getContentById(1);
