@@ -1,7 +1,5 @@
 <?php
 
-echo "intenta incloure";
-
 class RootPath {
 
     public static function include_path($relativePath){
