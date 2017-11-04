@@ -17,7 +17,7 @@
     <?php
       // Monta tots els elements del menú en la llista.
       while ($menuItem = current($items)) {
-          echo('<a href="'. key($items) .'"><li class="menu-item">'.$menuItem.'</li>');
+          echo('<a href="'. key($items) .'"><li class="menu-item">'.$menuItem.'</li></a>');
           next($items);
       }
     ?>
