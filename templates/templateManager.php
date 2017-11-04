@@ -1,11 +1,11 @@
 <?php
 
-include_once "content_types/BaseContent.php";
-include_once "content_types/ImageContent.php";
-include_once "content_types/ListContent.php";
-include_once "content_types/VideoContent.php";
-include_once "content_types/ImageListContent.php";
-include_once "content_types/ImageAudioContent.php";
+include_once "models/BaseContent.php";
+include_once "models/ImageContent.php";
+include_once "models/ListContent.php";
+include_once "models/VideoContent.php";
+include_once "models/ImageListContent.php";
+include_once "models/ImageAudioContent.php";
 include_once "db/EnumContentType.php";
 include_once "db/EnumDBContent.php";
 

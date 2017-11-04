@@ -4,13 +4,13 @@ include_once "../../db/EnumDBContent.php";
 
 class BaseContent {
 
-    private $id;
-    private $parent_id;
-    private $title;
-    private $textContent;
-    private $type;
-    private $position;
-    private $childs; // This is an array of integers.
+    protected $id;
+    protected $parent_id;
+    protected $title;
+    protected $textContent;
+    protected $type;
+    protected $position;
+    protected $childs; // This is an array of integers.
 
     public function __construct($array){
         $this->id = $array[EnumDBContent::ID];
