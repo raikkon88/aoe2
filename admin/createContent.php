@@ -1,12 +1,20 @@
 <?php
-include_once "../db/aoe2DB.php";
+include_once "../models/RootPath.php";
+RootPath::include_path("db/aoe2DB.php");
+
 /* Carregar la plantilla del header */
-include_once "../templates/head.php";
+RootPath::include_path("templates/head.php");
 
-include_once "../templates/header.php";
+RootPath::include_path("/templates/header.php");
 
-include_once "../db/EnumDBContent.php";
-include_once "../db/EnumContentType.php";
+RootPath::include_path("db/EnumDBContent.php");
+RootPath::include_path("db/EnumContentType.php");
+
+$db = new aoe2DB("../db/aoe2DB.db");
+
+$items=$db->getIDSTitles();
+    var_dump($items);
+
 ?>
 
 
@@ -15,11 +23,42 @@ include_once "../db/EnumContentType.php";
     <!-- You can use a div tag as well. -->
     <form action="createContent.php" method="POST">
         <section class="col-xs-12">
-            <select name=type id="contentType" required="required">
-                <option value=EnumContentType::TYPE >EnumContentType::TYPE</option>
-            <select>
+            CONTENT ID:
+            <input type="number" name="id" size="8" min="0" max="99999" step="any" value="" />
+        </section>
+        <section class="col-xs-12">
+            PARENT ID:
+            <select name="parentID" id="parent" >
+                <option value='blank' > </option>
+                <?php
 
-        <textarea name="editor_content" id="myEditor"></textarea>
+                foreach ($items as $entry) {
+
+                    echo "<option value='".$entry[EnumDBContent::TITLE]."'>".$entry[EnumDBContent::ID]."-->".$entry[EnumDBContent::TITLE]."</option>";
+
+                }
+                 ?>
+            </select>
+        </section>
+        <section class="col-xs-12">
+            TITLE:
+            <input type="text" name="title"  value="" />
+        </section>
+        <section class="col-xs-12">
+            CONTENT TYPE:
+            <select name="contentType" id="contentType" required="required">
+                <option value="<?php echo EnumContentType::BASE_CONTENT ?>" >Base Content</option>
+                <option value="<?php echo EnumContentType::IMAGE_CONTENT ?>" >Image Content</option>
+                <option value="<?php echo EnumContentType::IMAGE_LIST_CONTENT ?>" >Image List Content</option>
+                <option value="<?php echo EnumContentType::IMAGE_AUDIO_CONTENT ?>" >Image Audio Content</option>
+                <option value="<?php echo EnumContentType::LIST_CONTENT ?>" >List Content</option>
+                <option value="<?php echo EnumContentType::VIDEO_CONTENT ?>" > Video content</option>
+            </select>
+        </section>
+        <section class="col-xs-12">
+            CONTENT:
+            <textarea name="content" id="content"></textarea>
+        </section>
         <button>Submit</button>
     </form>
 
@@ -36,7 +75,7 @@ include_once "../db/EnumContentType.php";
     <!-- Initialize the editor. -->
     <script>
       $(function() {
-        $('#myEditor').froalaEditor({toolbarInline: false})
+        $('#content').froalaEditor({toolbarInline: false})
       });
     </script>
 </div>
@@ -45,9 +84,9 @@ include_once "../db/EnumContentType.php";
 <?php
 
 
-$db = new aoe2DB("../db/aoe2DB.db");
+
 
 
 /* Carregar la plantilla del footer */
-include_once "../templates/footer.php";
+RootPath::include_path("templates/footer.php");
 ?>
