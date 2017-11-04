@@ -12,52 +12,42 @@ class aoe2DB extends SQLite3 {
     function insertContent($id,$parentID,$title,$contentType,$content,$position){
 
         $insert="INSERT INTO CONTENT(ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION) Values(".$id.",".$parentID.",'".$title."','".$contentType."','".$content."',".$position.")";
-        //echo($insert);
         $this->exec($insert);
-        //$insert='INSERT INTO CONTENT(ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION) Values(:id,:parent,:title,:type,:content,:position)';
-        /*$statement=$this->prepare($insert);
-
-        $statement->bindParam(':id',$id);
-        $statement->bindParam(':parent',$parentID);
-        $statement->bindParam(':title',$title);
-        $statement->bindParam(':type',$contentType);
-        $statement->bindParam(':content',$content);
-        $statement->bindParam(':position',$position);
-
-        $statement->execute();
-
-        */
     }
-
-    function getContent(){
-        $select="SELECT CONTENT from CONTENT";
-        //echo($select);
-        $result=$this->query($select);
-
-        var_dump($result->fetchArray());
-    }
-
-
-
 
     function getContentById($id){
-        $select="SELECT ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION from CONTENT where ID=".$id."";
+        $select="SELECT ID,PARENT_ID,TITLE,CONTENT_TYPE,CONTENT,POSITION from CONTENT where ID=".$id;
         $query=$this->query($select);
 
         $result = $this->resultSetToArray($query);
         $arrayResult=null;
         foreach ($result as $entry) {
             $arrayResult[EnumDBContent::ID]=$entry['ID'];
-            $arrayResult['TITLE']=$entry['TITLE'];
-            $arrayResult['PARENT_ID']=$entry['PARENT_ID'];
-            $arrayResult['CONTENT_TYPE']=$entry['CONTENT_TYPE'];
-            $arrayResult['CONTENT']=$entry['CONTENT'];
-            $arrayResult['POSITION']=$entry['POSITION'];
-            //echo "ID: ". $entry['ID']. " Title: ".$entry['TITLE']." content: ".$entry['CONTENT']."\n";
+            $arrayResult[EnumDBContent::TITLE]=$entry['TITLE'];
+            $arrayResult[EnumDBContent::PARENT_ID]=$entry['PARENT_ID'];
+            $arrayResult[EnumDBContent::CONTENT_TYPE]=$entry['CONTENT_TYPE'];
+            $arrayResult[EnumDBContent::CONTENT]=$entry['CONTENT'];
+            $arrayResult[EnumDBContent::POSITION]=$entry['POSITION'];
+
+            $arrayResult[EnumDBContent::CHILDS]=$this->getContentChildsIDS($id);
         }
 
         return $arrayResult;
     }
+
+    function getContentChildsIDS($parentID){
+        $select="SELECT ID from CONTENT where PARENT_ID=".$parentID;
+        $query=$this->query($select);
+
+        $result = $this->resultSetToArray($query);
+        $arrayResult = array();
+        foreach ($result as $entry) {
+            array_push($arrayResult,$entry);
+        }
+
+        return $arrayResult;
+    }
+
 
 
     private function resultSetToArray($queryResultSet){
