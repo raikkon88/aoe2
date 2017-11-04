@@ -19,6 +19,8 @@ class TemplateManager {
     }
 
     function getContentObject(){
+        echo "get content object";
+
         switch ($this->content[EnumDBContent::TYPE]) {
             case EnumContentType::BASE_CONTENT:
 
@@ -42,7 +44,7 @@ class TemplateManager {
                 break;
             case EnumContentType::IMAGE_LIST_CONTENT:
 
-                
+
                 break;
 
             default:

@@ -17,6 +17,15 @@ class BaseContent {
     public function getTextContent(){
         return $this->textContent;
     }
+
+    public function getHtmlTitle(){
+        return "<h2>" . $this->title . "</h2>";
+    }
+
+    public function getHtmlTitle(){
+        return "<section class="content">" . $this->textContent . "</section>";
+    }
+
 }
 
 ?>
