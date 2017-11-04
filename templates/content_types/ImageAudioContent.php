@@ -1,7 +1,7 @@
 <?php
-include ('ImageContent.php');
 
-class ImageAudioContent extends ImageContent{
+
+class ImageAudioContent extends ImageContent {
 
 }
 

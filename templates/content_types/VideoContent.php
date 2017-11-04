@@ -1,7 +1,6 @@
 <?php
-include ('BaseContent.php');
 
-class ImageContent extends VideoContent{
+class VideoContent extends BaseContent{
 
 }
 

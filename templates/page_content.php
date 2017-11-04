@@ -1,5 +1,4 @@
 <?php
-    include('content_types/BaseContent.php');
 
     $base = new BaseContent("Títol de la pàgina", "<p> aixó és un contingut </p>");
     // Aquí esperarem a fer la select i a tenir el tipus de contingut.
