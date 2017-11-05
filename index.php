@@ -14,9 +14,9 @@ RootPath::include_path("templates/aside.php");
 
 $db = new aoe2DB("db/aoe2DB.db");
 
-$tm = new TemplateManager($db->getContentById(1));
+$tm = new TemplateManager($db->getContentById(6));
 $contentObject = $tm->getContentObject();
-echo $contentObject->getEntireSection();
+echo $contentObject->getHtml();
 
 /* Carregar la plantilla del footer */
 RootPath::include_path("templates/footer.php");

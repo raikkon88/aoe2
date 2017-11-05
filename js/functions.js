@@ -1,4 +1,6 @@
-
+/**
+ * Shows or hides the resource url for the resource that must be inserted
+ */
 function switchResource(select){
     $("#image_url").hide();
     $("#video_url").hide();

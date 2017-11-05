@@ -48,6 +48,17 @@ class aoe2DB extends SQLite3 {
         return $arrayResult;
     }
 
+    function getNextContentId(){
+        $select = "SELECT MAX(ID) from CONTENT";
+        $query = $this->query($select);
+        $result = $this->resultSetToArray($query);
+        if(isset($result)){
+            return $result[0]["MAX(ID)"] + 1;
+        }
+        return 0;
+
+    }
+
     function getIDSTitles(){
         $select="SELECT ID,TITLE from CONTENT";
         $query=$this->query($select);

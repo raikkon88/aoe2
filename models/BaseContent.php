@@ -38,7 +38,7 @@ class BaseContent {
         return "<div class='content'>" . $this->textContent . "</div>";
     }
 
-    public function getEntireSection(){
+    public function getHtml(){
         return '<section class="col-xs-9">' . $this->getHtmlTitle()  . $this->getHtmlContent() . '</section>';
     }
 
