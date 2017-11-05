@@ -46,3 +46,15 @@ header nav ul li {
     text-decoration: none;
     margin-right: var(--margin-default);
 }
+
+#image_url{
+    display: none;
+}
+
+#audio_url{
+    display: none;
+}
+
+#video_url{
+    display: none;
+}

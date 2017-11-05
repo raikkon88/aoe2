@@ -16,7 +16,7 @@ $items=$db->getIDSTitles();
     <div class="col-xs-12">
         <!-- Create a tag that we will use as the editable area. -->
         <!-- You can use a div tag as well. -->
-        <form action="FormManager.php" method="POST">
+        <form id="form" action="FormManager.php" method="POST" load="loadForm()">
             <section class="col-xs-12">
                 CONTENT ID:
                 <input type="number" name="id" size="8" min="0" max="99999" step="any" value="" />
@@ -38,7 +38,7 @@ $items=$db->getIDSTitles();
             </section>
             <section class="col-xs-12">
                 CONTENT TYPE:
-                <select name="contentType" id="contentType" required="required" onchange="">
+                <select name="contentType" id="contentType" required="required" onchange="switchResource(this)">
                     <option value="<?php echo EnumContentType::BASE_CONTENT ?>" >Base Content</option>
                     <option value="<?php echo EnumContentType::IMAGE_CONTENT ?>" >Image Content</option>
                     <option value="<?php echo EnumContentType::IMAGE_LIST_CONTENT ?>" >Image List Content</option>
@@ -47,11 +47,6 @@ $items=$db->getIDSTitles();
                     <option value="<?php echo EnumContentType::VIDEO_CONTENT ?>" > Video content</option>
                 </select>
             </section>
-            <section class="col-xs-12">
-                CONTENT:
-                <textarea name="content" id="content"></textarea>
-            </section>
-
             <section class="col-xs-12" id="image_url">
                 IMAGE:
                 <input type="text" name="image"  value="" />
@@ -66,6 +61,13 @@ $items=$db->getIDSTitles();
                 VIDEO:
                 <input type="text" name="video"  value="" />
             </section>
+
+            <section class="col-xs-12">
+                CONTENT:
+                <textarea name="content" id="content"></textarea>
+            </section>
+
+
 
             <input type="hidden" name="query" value="c"/>
             <button>Submit</button>

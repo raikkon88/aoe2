@@ -14,7 +14,7 @@ RootPath::include_path("templates/aside.php");
 
 $db = new aoe2DB("db/aoe2DB.db");
 
-$tm = new TemplateManager($db->getContentById(5));
+$tm = new TemplateManager($db->getContentById(1));
 $contentObject = $tm->getContentObject();
 echo $contentObject->getEntireSection();
 
