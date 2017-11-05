@@ -28,7 +28,7 @@ $items=$db->getIDSTitles();
         <div class="col-xs-3"><label for="parent">Parent Id</label></div>
         <div class="col-xs-9">
             <select name="parentID" id="parent" class="form-control">
-                <option value='blank' > </option>
+                <option value='NULL' > </option>
                 <?php
                 foreach ($items as $entry) {
                     echo "<option value='".$entry[EnumDBContent::ID]."'>".$entry[EnumDBContent::ID]."-->".$entry[EnumDBContent::TITLE]."</option>";

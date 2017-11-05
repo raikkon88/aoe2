@@ -32,3 +32,9 @@ o be es pot llegir les intruccions des d'un fitxer:
 Podem veura la instruccio create de una taula amb .schema
 
     .schema nomTaula
+
+### Url's de contingut
+
+- http://ageofempires.wikia.com/wiki/Age_of_Empires_II:_The_Age_of_Kings
+- https://es.wikipedia.org/wiki/Age_of_Empires_II:_The_Age_of_Kings
+- https://www.ageofempires.com/games/aoeii/

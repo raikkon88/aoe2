@@ -17,15 +17,18 @@ class Resource {
 
     public function getHtml($class = "img"){
         if($this->contentType == EnumResourceType::AUDIO){
-            //TODO : Change to audio tag
-            return $this->url;
+            return '<audio controls>
+                      <source src="'.$this->url.'" type="audio/wav">
+                      Your browser does not support the audio tag.
+                    </audio>';
         }
         else if($this->contentType == EnumResourceType::VIDEO){
-            // TODO: Change to video tag
-            return $this->url;
+            return '<video width="320" height="240" class="video" controls>
+                      <source src="'.$this->url.'" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>';
         }
         else{
-            // IS AN Image
             return '<img src="'. $this->url .'" class="img '. $class .'" />';
         }
     }

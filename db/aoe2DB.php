@@ -27,17 +27,14 @@ class aoe2DB extends SQLite3 {
 
         $arrayResult=null;
         foreach ($result as $entry) {
-            $arrayResult[EnumDBContent::ID]=$entry['ID'];
-            $arrayResult[EnumDBContent::TITLE]=$entry['TITLE'];
-            $arrayResult[EnumDBContent::PARENT_ID]=$entry['PARENT_ID'];
-            $arrayResult[EnumDBContent::TYPE]=$entry['CONTENT_TYPE'];
-            $arrayResult[EnumDBContent::CONTENT]=$entry['CONTENT'];
-            $arrayResult[EnumDBContent::POSITION]=$entry['POSITION'];
+            $arrayResult = $this->getParsedContent($entry);
             $arrayResult[EnumDBContent::CHILDS]=$this->getContentChildsIDS($id);
         }
         $arrayResult[EnumDBContent::RESOURCES]=$this->getResources($id);
         return $arrayResult;
     }
+
+
 
     function getResources($id){
         $select = "SELECT * FROM RESOURCES WHERE ID_PARENT = " . $id;
@@ -51,15 +48,16 @@ class aoe2DB extends SQLite3 {
     }
 
     function getContentChildsIDS($parentID){
-        $select="SELECT ID from CONTENT where PARENT_ID=".$parentID;
+        $select="SELECT * from CONTENT where PARENT_ID=".$parentID;
         $query=$this->query($select);
-
         $result = $this->resultSetToArray($query);
-        $arrayResult = array();
-        foreach ($result as $entry) {
-            array_push($arrayResult,$entry);
-        }
 
+        $arrayResult = array();
+        foreach ($result as $key => $row) {
+            $contentRow = $this->getParsedContent($row);
+            $tm = new TemplateManager($contentRow);
+            array_push($arrayResult, $tm->getContentObject());
+        }
         return $arrayResult;
     }
 
@@ -82,7 +80,6 @@ class aoe2DB extends SQLite3 {
         $arrayResult=null;
         $array=array();
         foreach ($result as $entry) {
-
             $arrayResult[EnumDBContent::ID]=$entry['ID'];
             $arrayResult[EnumDBContent::TITLE]=$entry['TITLE'];
             array_push($array,$arrayResult);
@@ -107,6 +104,16 @@ class aoe2DB extends SQLite3 {
        return $multiArray;
     }
 
+    private function getParsedContent($row){
+        $res = array();
+        $res[EnumDBContent::ID]=$row['ID'];
+        $res[EnumDBContent::TITLE]=$row['TITLE'];
+        $res[EnumDBContent::PARENT_ID]=$row['PARENT_ID'];
+        $res[EnumDBContent::TYPE]=$row['CONTENT_TYPE'];
+        $res[EnumDBContent::CONTENT]=$row['CONTENT'];
+        $res[EnumDBContent::POSITION]=$row['POSITION'];
+        return $res;
+    }
 
 
 }

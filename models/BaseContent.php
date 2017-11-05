@@ -13,13 +13,13 @@ class BaseContent {
     protected $childs; // This is an array of integers.
 
     public function __construct($array){
-        $this->id = $array[EnumDBContent::ID];
-        $this->parent_id = $array[EnumDBContent::PARENT_ID];
-        $this->type = $array[EnumDBContent::TYPE];
-        $this->title = $array[EnumDBContent::TITLE];
-        $this->position= $array[EnumDBContent::POSITION];
-        $this->textContent = $array[EnumDBContent::CONTENT];
-        $this->childs = $array[EnumDBContent::CHILDS];
+        if(isset($array[EnumDBContent::ID]))        { $this->id = $array[EnumDBContent::ID]; }
+        if(isset($array[EnumDBContent::PARENT_ID])) { $this->parent_id = $array[EnumDBContent::PARENT_ID]; }
+        if(isset($array[EnumDBContent::TYPE]))      { $this->type = $array[EnumDBContent::TYPE]; }
+        if(isset($array[EnumDBContent::TITLE]))     { $this->title = $array[EnumDBContent::TITLE]; }
+        if(isset($array[EnumDBContent::POSITION]))  { $this->position= $array[EnumDBContent::POSITION]; }
+        if(isset($array[EnumDBContent::CONTENT]))   { $this->textContent = $array[EnumDBContent::CONTENT]; }
+        if(isset($array[EnumDBContent::CHILDS]))    { $this->childs = $array[EnumDBContent::CHILDS]; }
     }
 
     public function getTitle(){
@@ -28,6 +28,10 @@ class BaseContent {
 
     public function getTextContent(){
         return $this->textContent;
+    }
+
+    public function getChilds(){
+        return $this->childs;
     }
 
     public function getHtmlTitle(){
