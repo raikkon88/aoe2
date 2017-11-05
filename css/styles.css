@@ -18,7 +18,7 @@ header {
 }
 
 header img {
-    /* width: 100%; */
+    width : 330px;
 }
 
 header nav ul {
@@ -31,7 +31,8 @@ header nav ul li {
 }
 
 .logo {
-    width: 300px;
+    width: 200px;
+    float:right;
 }
 
 .footer_data {

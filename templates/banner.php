@@ -1,6 +1,6 @@
 <div class="banner">
 
-    <img class="logo" src="images/logo.png" />
+    <img class="logo" src="<?php echo ROOT_DIRECTORY; ?>images/logo.png" />
 
     <?php include('nav.php'); /* Includes the menu items */ ?>
 

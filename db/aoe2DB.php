@@ -4,8 +4,6 @@ include_once "EnumDBContent.php";
 
 class aoe2DB extends SQLite3 {
 
-    const PATH = "db/aoe2DB.db";
-
     function __construct($path){
         $this->open($path);
     }
