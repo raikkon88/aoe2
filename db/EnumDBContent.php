@@ -13,6 +13,9 @@ class EnumDBContent extends Enum {
     const TYPE = 4;
     const POSITION = 5;
     const CHILDS = 6;
+    const RESOURCES = 7;
+    const TABLE_RESOURCES = "RESOURCES";
+    const TABLE_CONTENT = "CONTENT";
 }
 
 ?>

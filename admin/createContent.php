@@ -7,6 +7,7 @@ RootPath::include_path("/templates/header.php");
 
 RootPath::include_path("db/EnumDBContent.php");
 RootPath::include_path("db/EnumContentType.php");
+RootPath::include_path("db/EnumResourceType.php");
 
 $db = new aoe2DB("../db/aoe2DB.db");
 
@@ -20,7 +21,7 @@ $items=$db->getIDSTitles();
 
     <section class="form-group col-xs-12">
         <div class="col-xs-3"><label for="id">Content Id</label></div>
-        <div class="col-xs-9"><input class="form-control" id="_id" type="number" name="id" size="8" min="0" max="99999" step="any" value="<?php echo $db->getNextContentId(); ?>" /></div>
+        <div class="col-xs-9"><input class="form-control" id="_id" type="number" name="id" size="8" min="0" max="99999" step="any" value="<?php echo $db->getNextId(EnumDBContent::TABLE_CONTENT); ?>" /></div>
     </section>
 
     <section class="form-group col-xs-12">
@@ -58,18 +59,18 @@ $items=$db->getIDSTitles();
 
     <section class="form-group col-xs-12" id="image_url">
         <div class="col-xs-3"><label for="image_url_input">Image URL</label></div>
-        <div class="col-xs-9"><input class="form-control" type="text" name="image" id="image_url_input" value="" /></div>
+        <div class="col-xs-9"><input class="form-control" type="text" name="<?php echo EnumResourceType::IMAGE; ?>" id="image_url_input" value="" /></div>
     </section>
 
     <section class="form-group col-xs-12" id="audio_url">
         <div class="col-xs-3"><label for="audio_url_input">Audio URL</label></div>
-        <div class="col-xs-9"><input class="form-control" type="text" name="audio" id="audio_url_input" value="" /></div>
+        <div class="col-xs-9"><input class="form-control" type="text" name="<?php echo EnumResourceType::AUDIO; ?>" id="audio_url_input" value="" /></div>
     </section>
 
 
     <section class="form-group col-xs-12" id="video_url">
         <div class="col-xs-3"><label for="video_url_input">Video URL</label></div>
-        <div class="col-xs-9"><input class="form-control" type="text" name="video" id="video_url_input" value="" /></div>
+        <div class="col-xs-9"><input class="form-control" type="text" name="<?php echo EnumResourceType::VIDEO; ?>" id="video_url_input" value="" /></div>
     </section>
 
     <section class="form-group col-xs-12">

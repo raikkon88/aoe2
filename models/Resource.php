@@ -6,7 +6,7 @@ class Resource {
     private $id;
     private $url;
     private $contentType;
-    private $parenId;
+    private $parentId;
 
     public function __construct($id, $url, $contentType, $parentId){
         $this->id = $id;
@@ -30,6 +30,15 @@ class Resource {
         }
     }
 
+    public function isImage(){
+        return $this->contentType == EnumResourceType::IMAGE;
+    }
+    public function isAudio(){
+        return $this->contentType == EnumResourceType::AUDIO;
+    }
+    public function isVideo(){
+        return $this->contentType == EnumResourceType::VIDEO;
+    }
 }
 
 ?>

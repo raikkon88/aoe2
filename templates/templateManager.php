@@ -25,8 +25,7 @@ class TemplateManager {
                 return new BaseContent($this->content);
                 break;
             case EnumContentType::IMAGE_CONTENT:
-
-
+                return new ImageContent($this->content);
                 break;
             case EnumContentType::LIST_CONTENT:
 
