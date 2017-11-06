@@ -29,14 +29,12 @@ class TemplateManager {
                 break;
             case EnumContentType::LIST_CONTENT:
 
-
                 break;
             case EnumContentType::VIDEO_CONTENT:
                 return new VideoContent($this->content);
                 break;
             case EnumContentType::IMAGE_AUDIO_CONTENT:
-
-
+                return new ImageAudioContent($this->content);
                 break;
             case EnumContentType::IMAGE_LIST_CONTENT:
 
