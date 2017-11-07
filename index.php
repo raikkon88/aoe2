@@ -11,7 +11,7 @@ RootPath::include_path("templates/aside.php");
 
 $db = new aoe2DB("db/aoe2DB.db");
 
-$tm = new TemplateManager($db->getContentById(10));
+$tm = new TemplateManager($db->getContentById(15));
 $contentObject = $tm->getContentObject();
 /* Carreguem el banner amb el menú */
 RootPath::include_path("templates/header.php");

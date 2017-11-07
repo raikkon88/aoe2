@@ -19,7 +19,6 @@ class TemplateManager {
     }
 
     function getContentObject(){
-
         switch ($this->content[EnumDBContent::TYPE]) {
             case EnumContentType::BASE_CONTENT:
                 return new BaseContent($this->content);
@@ -28,7 +27,7 @@ class TemplateManager {
                 return new ImageContent($this->content);
                 break;
             case EnumContentType::LIST_CONTENT:
-
+                return new ListContent($this->content);
                 break;
             case EnumContentType::VIDEO_CONTENT:
                 return new VideoContent($this->content);
@@ -37,10 +36,8 @@ class TemplateManager {
                 return new ImageAudioContent($this->content);
                 break;
             case EnumContentType::IMAGE_LIST_CONTENT:
-
-
+                return new ImageListContent($this->content);
                 break;
-
             default:
                 return 0;
                 break;

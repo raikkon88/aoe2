@@ -46,6 +46,10 @@ class BaseContent {
         return '<section class="col-xs-9">' . $this->getHtmlTitle()  . $this->getHtmlContent() . '</section>';
     }
 
+    public function getHtmlListItem(){
+        return '<li><a href="'. RootPath::get_index() . '&' . $this->id . '">' . $this->title . '</a></li>';
+    }
+
 }
 
 ?>

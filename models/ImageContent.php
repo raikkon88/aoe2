@@ -20,13 +20,15 @@ class ImageContent extends BaseContent {
         }
     }
 
+    public function getHtmlResource(){
+        if(isset($this->resource)){
+            return $this->resource->getHtml();
+        }
+        return "";
+    }
+
     public function getHtml(){
-        if(isset($this->resource)) {
-            return '<section class="col-xs-9">' . $this->getHtmlTitle() . $this->resource->getHtml() . $this->getHtmlContent() . '</section>';
-        }
-        else{
-            return '<section class="col-xs-9">' . $this->getHtmlTitle() . $this->getHtmlContent() . '</section>';
-        }
+        return '<section class="col-xs-9">' . $this->getHtmlTitle() . $this->getHtmlResource() . $this->getHtmlContent() . '</section>';
     }
 }
 

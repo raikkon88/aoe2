@@ -9,6 +9,14 @@ class RootPath {
     public static function get_absolute_path($relative){
         return $_SERVER['DOCUMENT_ROOT'] . "/aoe2/" . $relative;
     }
+
+    public static function get_server_name(){
+        return $_SERVER['SERVER_NAME'] . "/aoe2/";
+    }
+
+    public static function get_index(){
+        return RootPath::get_server_name() . "index.html";
+    }
 }
 
 ?>
