@@ -1,7 +1,6 @@
 <?php
-define("LOCAL_PATH", "localhost:8888");
+define("LOCAL_PATH", "http://mspifarre.com");
 define("INDEX_ID", 1);
-
 
 $page = INDEX_ID;
 if(isset($_GET["page"])){
@@ -25,7 +24,13 @@ $contentObject = $tm->getContentObject();
 /* Carreguem el banner amb el menú */
 RootPath::include_path("templates/header.php");
 /* Carregar la plantilla del contingut */
-echo Aside::getHtml($contentObject->getChilds());
+if($contentObject->isDad()){
+    echo Aside::getHtml($contentObject->getChilds());
+}
+else{
+    echo Aside::getHtml($db->getContentChildsIDS($contentObject->getParentId()));
+}
+
 echo $contentObject->getHtml();
 
 /* Carregar la plantilla del footer */

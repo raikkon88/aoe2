@@ -34,6 +34,14 @@ class BaseContent {
         return $this->childs;
     }
 
+    public function getParentId(){
+        return $this->parent_id;
+    }
+
+    public function isDad(){
+        return !isset($this->parent_id);
+    }
+
     public function getHtmlTitle(){
         return "<h2>" . $this->title . "</h2>";
     }

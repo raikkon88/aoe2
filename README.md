@@ -38,3 +38,7 @@ Podem veura la instruccio create de una taula amb .schema
 - http://ageofempires.wikia.com/wiki/Age_of_Empires_II:_The_Age_of_Kings
 - https://es.wikipedia.org/wiki/Age_of_Empires_II:_The_Age_of_Kings
 - https://www.ageofempires.com/games/aoeii/
+
+### Banner slider
+
+- https://www.jqueryscript.net/slider/Minimal-Banner-Slider-Plugin-With-jQuery-Banner-js.html
