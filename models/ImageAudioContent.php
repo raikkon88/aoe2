@@ -20,7 +20,6 @@ class ImageAudioContent extends ImageContent {
 
     public function getHtml(){
 
-
         if(isset($this->audio)) {
             return '<section class="col-xs-9">' .
                        $this->getHtmlTitle() .

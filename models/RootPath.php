@@ -11,7 +11,7 @@ class RootPath {
     }
 
     public static function get_server_name(){
-        return $_SERVER['SERVER_NAME'] . "/aoe2/";
+        return LOCAL_PATH . "/aoe2/";
     }
 
     public static function get_index(){

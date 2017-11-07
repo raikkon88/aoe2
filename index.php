@@ -1,4 +1,13 @@
 <?php
+define("LOCAL_PATH", "localhost:8888");
+define("INDEX_ID", 1);
+
+
+$page = INDEX_ID;
+if(isset($_GET["page"])){
+    $page = $_GET["page"];
+}
+
 //echo "". $_SERVER["DOCUMENT_ROOT"] . "/aoe2/models/RootPath.php";
 include_once "models/RootPath.php";
 
@@ -11,7 +20,7 @@ RootPath::include_path("templates/aside.php");
 
 $db = new aoe2DB("db/aoe2DB.db");
 
-$tm = new TemplateManager($db->getContentById(15));
+$tm = new TemplateManager($db->getContentById($page));
 $contentObject = $tm->getContentObject();
 /* Carreguem el banner amb el menú */
 RootPath::include_path("templates/header.php");
