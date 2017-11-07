@@ -130,4 +130,5 @@ $resultado=$bd->query('Select content from content');
 
 var_dump($resultado->fetchArray());
 */
+
 ?>

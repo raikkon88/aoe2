@@ -1,6 +1,6 @@
 <?php
-define('ROOT_DIRECTORY', 'http://localhost:8888/aoe2/');
-RootPath::include_path("db/aoe2DB.php");
+define('ROOT_DIRECTORY', LOCAL_PATH);
+//RootPath::include_path("db/aoe2DB.php");
 ?>
 
 <!DOCTYPE html>
