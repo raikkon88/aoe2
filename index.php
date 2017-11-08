@@ -1,5 +1,5 @@
 <?php
-define("LOCAL_PATH", "http://mspifarre.com");
+define("LOCAL_PATH", "http://mspifarre.com/aoe2/");
 define("INDEX_ID", 1);
 
 $page = INDEX_ID;
@@ -12,7 +12,7 @@ include_once "models/RootPath.php";
 include_once "db/aoe2DB.php";
 
 /* Will manage which template must load */
-include_once "templates/TemplateManager.php";
+include_once "templates/templateManager.php";
 //RootPath::include_path("templates/TemplateManager.php");
 /* Carregar la plantilla del header */
 include_once "templates/head.php";
@@ -28,9 +28,8 @@ $db = new aoe2DB($dbpath);
 
 //echo $_SERVER['DOCUMENT_ROOT'];
 //echo RootPath::get_absolute_path("");
-
 $tm = new TemplateManager($db->getContentById($page));
-//$contentObject = $tm->getContentObject();
+$contentObject = $tm->getContentObject();
 /* Carreguem el banner amb el menú */
 include_once "templates/header.php";
 //RootPath::include_path("templates/header.php");

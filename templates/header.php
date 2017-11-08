@@ -1,4 +1,7 @@
-<header class="row">
-    <?php include('banner.php'); ?>
-</header>
-<div class="row content">
+<div class="row">
+    <header>
+        <?php include('banner.php'); ?>
+    </header>
+
+    <?php include('nav.php'); /* Includes the menu items */ ?>
+    

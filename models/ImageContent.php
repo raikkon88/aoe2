@@ -1,8 +1,10 @@
 <?php
 
 include_once "BaseContent.php";
-RootPath::include_path("db/EnumResourceType.php");
-RootPath::include_path("db/EnumDBContent.php");
+include_once "db/EnumResourceType.php";
+//RootPath::include_path("db/EnumResourceType.php");
+include_once "db/EnumDBContent.php";
+//RootPath::include_path("db/EnumDBContent.php");
 
 class ImageContent extends BaseContent {
 

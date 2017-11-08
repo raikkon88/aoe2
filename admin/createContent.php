@@ -1,13 +1,14 @@
 <?php
-include_once "../models/RootPath.php";
-/* Carregar la plantilla del header */
-RootPath::include_path("templates/head.php");
+define("LOCAL_PATH", "http://mspifarre.com/aoe2/");
 
-RootPath::include_path("/templates/header.php");
+include_once "../db/aoe2DB.php";
 
-RootPath::include_path("db/EnumDBContent.php");
-RootPath::include_path("db/EnumContentType.php");
-RootPath::include_path("db/EnumResourceType.php");
+include_once "../templates/head.php";
+
+include_once "../templates/header.php";
+include_once "../db/EnumDBContent.php";
+include_once "../db/EnumContentType.php";
+include_once "../db/EnumResourceType.php";
 
 $db = new aoe2DB("../db/aoe2DB.db");
 
@@ -104,5 +105,5 @@ $items=$db->getIDSTitles();
 
 <?php
 /* Carregar la plantilla del footer */
-RootPath::include_path("templates/footer.php");
+include_once "../templates/footer.php";
 ?>

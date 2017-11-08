@@ -11,15 +11,22 @@
                   "link5" => "Extensions"
                 );
 ?>
+<nav class="navbar navbar-inverse col-xs-12">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Age Of Empires II</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <?php
+          // Monta tots els elements del menú en la llista.
+          while ($menuItem = current($items)) {
+              echo '<li><a href="#">Page 1</a></li>';
 
-<nav class="menu">
-  <ul class="menu-list">
-    <?php
-      // Monta tots els elements del menú en la llista.
-      while ($menuItem = current($items)) {
-          echo('<a href="'. key($items) .'"><li class="menu-item">'.$menuItem.'</li></a>');
-          next($items);
-      }
-    ?>
-  </ul>
+              //echo '<button type="button" class="btn btn-default navbar-btn">' . $menuItem . '</button>';
+             // echo('<a href="'. key($items) .'"><li class="menu-item">'.$menuItem.'</li></a>');
+              next($items);
+          }
+        ?>
+    </ul>
+  </div>
 </nav>

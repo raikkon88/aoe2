@@ -1,6 +1,5 @@
 <?php
-
-RootPath::include_path("db/EnumDBContent.php");
+include_once "db/EnumDBContent.php";
 
 class BaseContent {
 

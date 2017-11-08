@@ -18,7 +18,7 @@ class TemplateManager {
         $this->content = $array;
     }
 
-    function getContentObject(){
+    function getContentObject(){;
         switch ($this->content[EnumDBContent::TYPE]) {
             case EnumContentType::BASE_CONTENT:
                 return new BaseContent($this->content);

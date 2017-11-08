@@ -1,6 +1,6 @@
 <?php
-
-RootPath::include_path("db/EnumResourceType.php");
+include_once "db/EnumResourceType.php";
+//RootPath::include_path("db/EnumResourceType.php");
 
 class Resource {
     private $id;

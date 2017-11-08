@@ -1,6 +1,7 @@
 <?php
 include_once "EnumDBContent.php";
-RootPath::include_path("models/Resource.php");
+include_once "models/Resource.php";
+//RootPath::include_path("models/Resource.php");
 
 class aoe2DB extends SQLite3 {
 
