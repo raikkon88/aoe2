@@ -19,3 +19,35 @@ function switchResource(select){
         $("#image_url").show();
     }
 }
+
+/**
+ * Resizes the content page when
+ */
+function resizeFooter(){
+
+    var pagePos = $('.page-content').position().top;
+    //console.log("posició de la pàgina : " + pagePos);
+    var realHeight = $(window).height() - pagePos - $("footer").height();
+    //console.log("grandaria del page content : " + realHeight);
+    if($("footer").position().top < $(window).height() - $("footer").height()){
+        $('.page-content').height(realHeight);
+    }
+    else{
+        $('.page-content').css('height', 'auto');
+    }
+
+}
+
+/**
+ * On page loads ...
+ */
+$(window).on('load', function () {
+    resizeFooter();
+});
+
+/**
+ * On Screen resizes ...
+ */
+$(window).on('resize', function (){
+    resizeFooter();
+});

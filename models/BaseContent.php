@@ -21,6 +21,10 @@ class BaseContent {
         if(isset($array[EnumDBContent::CHILDS]))    { $this->childs = $array[EnumDBContent::CHILDS]; }
     }
 
+    public function getId(){
+        return $this->id;
+    }
+
     public function getTitle(){
         return $this->title;
     }
@@ -50,11 +54,11 @@ class BaseContent {
     }
 
     public function getHtml(){
-        return '<section class="col-xs-9">' . $this->getHtmlTitle()  . $this->getHtmlContent() . '</section>';
+        return '<section class="page-content col-xs-9">' . $this->getHtmlTitle()  . $this->getHtmlContent() . '</section>';
     }
 
     public function getHtmlListItem(){
-        return '<li><a href="'. RootPath::get_index() . '&' . $this->id . '">' . $this->title . '</a></li>';
+        return '<a href="index.php?page=' . $this->id . '"><li class="list-group-item">' . $this->title . '</li></a>';
     }
 
 }

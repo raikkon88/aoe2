@@ -5,6 +5,7 @@ include_once "../db/aoe2DB.php";
 
 include_once "../templates/head.php";
 
+include_once "../models/Resource.php";
 include_once "../templates/header.php";
 include_once "../db/EnumDBContent.php";
 include_once "../db/EnumContentType.php";
@@ -20,7 +21,7 @@ $items=$db->getIDSTitles();
 <!-- You can use a div tag as well. -->
 <form id="form" action="FormManager.php" method="POST" load="loadForm()">
 
-    <section class="form-group col-xs-12">
+    <section class="form-group col-xs-12" style="margin-top:20px;">
         <div class="col-xs-3"><label for="id">Content Id</label></div>
         <div class="col-xs-9"><input class="form-control" id="_id" type="number" name="id" size="8" min="0" max="99999" step="any" value="<?php echo $db->getNextId(EnumDBContent::TABLE_CONTENT); ?>" /></div>
     </section>

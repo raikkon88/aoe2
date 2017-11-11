@@ -14,7 +14,7 @@ class ImageListContent extends ImageContent{
     }
 
     public function getHtmlList(){
-        $res =  '<ul>';
+        $res =  '<ul class="list-group">';
         foreach ($this->list as $item){
             $res = $res . $item->getHtmlListItem();
         }
@@ -23,12 +23,12 @@ class ImageListContent extends ImageContent{
     }
 
     public function getHtml(){
-        return  '<section class="col-xs-9">' .
+        return  '<section class="page-content col-xs-9">' .
                     $this->getHtmlTitle()  .
                     $this->getHtmlResource() .
                     $this->getHtmlContent() .
                     $this->getHtmlList() .
-                '<section>';
+                '</section>';
     }
 
 }

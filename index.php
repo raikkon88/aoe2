@@ -10,6 +10,7 @@ if(isset($_GET["page"])){
 //echo "". $_SERVER["DOCUMENT_ROOT"] . "/aoe2/models/RootPath.php";
 include_once "models/RootPath.php";
 include_once "db/aoe2DB.php";
+include_once "models/Resource.php";
 
 /* Will manage which template must load */
 include_once "templates/templateManager.php";

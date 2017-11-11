@@ -21,7 +21,7 @@ class ImageAudioContent extends ImageContent {
     public function getHtml(){
 
         if(isset($this->audio)) {
-            return '<section class="col-xs-9">' .
+            return '<section class="page-content col-xs-9">' .
                        $this->getHtmlTitle() .
                        $this->resource->getHtml() .
                        $this->audio->getHtml() .
@@ -29,7 +29,7 @@ class ImageAudioContent extends ImageContent {
                    '</section>';
         }
         else{
-            return '<section class="col-xs-9">' . $this->getHtmlTitle() . $this->getHtmlContent() . '</section>';
+            return '<section class="page-content col-xs-9">' . $this->getHtmlTitle() . $this->getHtmlContent() . '</section>';
         }
     }
 

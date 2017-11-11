@@ -5,11 +5,12 @@
 /************************************************************************/
 :root{
     --margin-default:30px;
+    --background-color:rgb(30, 40, 53);
+    --link-color: rgb(156,156,156);
+    --link-color-hover: rgb(0,134,230);
 }
 
-body {
-
-    overflow-x: hidden;
+html, body {
 }
 
 /************************************************************************/
@@ -30,33 +31,43 @@ nav ul li {
 }
 
 aside {
-    background-color: rgb(30, 40, 53);
+    padding-top: 20px;
+    background-color: var(--background-color);
+    padding-bottom: 32767px;
+    margin-bottom: -32767px;
 }
 
 aside ul {
-
+    margin-left: -20px;
 }
 
 
 aside ul a {
     text-decoration: none;
+    color: var(--link-color);
 }
 
 aside ul a li {
     list-style: none;
     padding: 10px;
-    color:white;
+
 }
 
 aside ul a li span {
     margin-left: 0px;
-    -webkit-transition: margin-left 0.5s; /* For Safari 3.1 to 6.0 */
-    transition: margin-left 0.5s;
+    -webkit-transition: margin-left 0.5s, color 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: margin-left 0.5s, color 0.5s;
+
+
 }
 
+aside ul a:hover{
+    text-decoration: none;
+    color: var(--link-color-hover);
+}
 
 aside ul a:hover li span {
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .logo {
@@ -77,27 +88,63 @@ aside ul a:hover li span {
 
 
 .content {
-    margin-top: 30px;
+    margin-top: var(--margin-default);
+}
+
+.page-content {
+    background-color:rgb(255,255,255);
+    padding-right: 40px;
+}
+
+.page-content img {
+    float: right;
+    margin-top: var(--margin-default);
+    max-width: 400px;
+    padding-left: var(--margin-default);
+    padding-bottom: var(--margin-default);
+
+}
+
+.page-content iframe {
+    max-width: 420px;
+    float: right;
+    margin-top: var(--margin-default);
+    margin-left: var(--margin-default);
+    margin-bottom: var(--margin-default);
+}
+
+.content {
+    text-align: justify;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
+    /*position: absolute;
+    bottom: 0;*/
     width: 100%;
-    height: 60px;
-    background-color: #f5f5f5;
+    /*height: 60px;
+    background-color: #f5f5f5; */
+    color: var(--link-color);
 }
 
-.footer_data {
-    list-style-type: none;
-    float: right;
+footer p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 20px;
+    margin:auto;
 }
 
-.footer_data li {
-    float: left;
-    font-style: none;
+footer p a {
+    color: var(--link-color);
     text-decoration: none;
-    margin-right: var(--margin-default);
+
+    -webkit-transition: color 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: color 0.5s;
+}
+
+footer p a:hover{
+    text-decoration: none;
+    color: var(--link-color-hover);
 }
 
 .form-button {

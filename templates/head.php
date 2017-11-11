@@ -17,8 +17,6 @@ define('ROOT_DIRECTORY', LOCAL_PATH);
 
   <!-- Application styles -->
   <link rel="stylesheet" type="text/css" href="<?php echo ROOT_DIRECTORY ?>css/styles.css">
-  <!-- Adding application javascript functions -->
-  <script src="<?php echo ROOT_DIRECTORY ?>js/functions.js"></script>
   <!-- Adding jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
@@ -31,7 +29,9 @@ define('ROOT_DIRECTORY', LOCAL_PATH);
   <!-- Include Editor style. -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.1/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.1/css/froala_style.min.css" rel="stylesheet" type="text/css" />
-
+  
+  <!-- Adding application javascript functions -->
+  <script src="<?php echo ROOT_DIRECTORY ?>js/functions.js"></script>
   <title>
     AOE2-4Beginers
   </title>

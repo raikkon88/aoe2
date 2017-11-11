@@ -22,11 +22,11 @@ class ListContent extends BaseContent{
     }
 
     public function getHtml(){
-        return  '<section class="col-xs-9">' .
+        return  '<section class="page-content col-xs-9">' .
                     $this->getHtmlTitle()  .
                     $this->getHtmlContent() .
                     $this->getHtmlList() .
-                '<section>';
+                '</section>';
     }
 
 }
