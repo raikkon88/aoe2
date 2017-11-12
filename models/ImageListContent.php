@@ -14,11 +14,11 @@ class ImageListContent extends ImageContent{
     }
 
     public function getHtmlList(){
-        $res =  '<ul class="list-group">';
+        $res =  '<div class="col-xs-12">';
         foreach ($this->list as $item){
             $res = $res . $item->getHtmlListItem();
         }
-        $res = $res . '</ul>';
+        $res = $res . '</div>';
         return $res;
     }
 

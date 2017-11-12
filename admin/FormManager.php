@@ -17,7 +17,7 @@ if(isset($_POST["query"])){
         $db->insertResource($_POST[EnumResourceType::VIDEO], EnumResourceType::VIDEO, $_POST["id"]);
     }
     var_dump($_POST);
-
+     header("Location: http://mspifarre.com/aoe2/admin/createContent.php");
 }
 
 ?>

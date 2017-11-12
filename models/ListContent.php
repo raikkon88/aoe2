@@ -13,11 +13,11 @@ class ListContent extends BaseContent{
     }
 
     public function getHtmlList(){
-        $res =  '<ul>';
+        $res =  '<div class="col-xs-12">';
         foreach ($this->list as $item){
             $res = $res . $item->getHtmlListItem();
         }
-        $res = $res . '</ul>';
+        $res = $res . '</div>';
         return $res;
     }
 

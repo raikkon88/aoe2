@@ -7,7 +7,8 @@
                   "1" => "Game Description",
                   "5" => "Game Modes",
                   "13" => "Element Descriptions",
-                  "55" => "Extensions"
+                  "55" => "Extensions",
+                  "38" => "Delivery Information"
                 );
 ?>
 <nav class="navbar navbar-inverse col-xs-12">

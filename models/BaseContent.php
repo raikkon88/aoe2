@@ -58,7 +58,7 @@ class BaseContent {
     }
 
     public function getHtmlListItem(){
-        return '<a href="index.php?page=' . $this->id . '"><li class="list-group-item">' . $this->title . '</li></a>';
+        return '<a href="index.php?page=' . $this->id . '"  class="bottom-list-item col-xs-4"><p>' . $this->title . '</p></a>';
     }
 
 }
